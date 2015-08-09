@@ -1,6 +1,7 @@
 module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-compass');
 
 	grunt.initConfig({
 		uglify: {
@@ -11,14 +12,24 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-
+		compass: {
+			dev: {
+				options: {
+					config: 'config.rb'
+				}
+			}
+		},
 		watch: {
 			options: {
-//				livereload: true
+				//				livereload: true
 			},
-			scripts {
+			scripts: {
 				files: ['_/components/js/*.js'],
 				tasks: ['uglify']
+			},
+			sass: {
+				files: ['_/components/sass/*.scss'],
+				tasks: ['compass:dev']
 			}
 		}
 	});
