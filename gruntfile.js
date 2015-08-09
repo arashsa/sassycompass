@@ -13,8 +13,13 @@ module.exports = function (grunt) {
 		},
 
 		watch: {
-			files: ['_/components/js/*.js'],
-			tasks: ['uglify']
+			options: {
+//				livereload: true
+			},
+			scripts {
+				files: ['_/components/js/*.js'],
+				tasks: ['uglify']
+			}
 		}
 	});
 
